@@ -1,0 +1,72 @@
+*{
+    margin: 0px;
+    border: 0px;
+    bottom: 0px;
+    font-size: 18px;
+}
+
+
+/* 搜索栏 */
+#header{
+    display: flex;
+    align-items: center;
+    width:100%;
+    height: 70px;
+    border-bottom: 1px solid #dddddd;
+}
+
+#searchInput{
+    float:left;
+    width:70%;
+    height: 45px;
+    margin-left: 5%;
+    font-size: 18px;
+    border-radius: 0px;
+}
+
+#accuracySearch-button{
+    float: left;
+    height: 45px;
+    border-radius: 0px;
+}
+
+#fuzzySearch-button{
+    float: left;
+    height: 45px;
+    border-radius: 0px;
+}
+
+.header-box{
+    position: relative;
+    width: 50%;
+}
+
+
+/* 中间的内容-图片 */
+#content{
+    width: 100%;
+}
+
+#content-img{
+    position: relative;
+    float:left;
+    width: 50%;
+}
+
+#content-img-wrapper{
+    padding-left: 5%;
+}
+
+
+#content-img-wrapper img{
+    width: 90%;
+}
+
+#content-text{
+    position: relative;
+    float:left;
+    word-break:break-word;
+    text-overflow: ellipsis;
+ 
+    width: 40%;
+}
