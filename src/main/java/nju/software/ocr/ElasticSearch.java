@@ -19,13 +19,14 @@ public class ElasticSearch {
 
     public static void main(String[] args) throws IOException {
         // 将jpg图片存储至虚拟目录、将json数据存储至Elastic Searcsh数据库
-        /*
-        System.out.println("开始保存数据");
-        ReadFile readFile = new ReadFile();
-        String path = "C:\\Users\\Himory\\Desktop\\天津组\\作业二描述\\电子卷宗智能检索系统任务要求\\电子卷宗OCR";
-        readFile.readDirFile(path);
-        System.out.println("保存数据成功！");
-         */
+
+
+//        System.out.println("开始保存数据");
+//        ReadFile readFile = new ReadFile();
+//        String path = "C:\\Users\\Himory\\Desktop\\天津组\\作业二描述\\电子卷宗智能检索系统任务要求\\电子卷宗OCR";
+//        readFile.readDirFile(path);
+//        System.out.println("保存数据成功！");
+
 
         // 运行spring
         SpringApplication.run(ElasticSearch.class,args);

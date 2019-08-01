@@ -6,6 +6,8 @@ import nju.software.ocr.model.Status;
 import nju.software.ocr.util.JsonUtils;
 import org.apache.http.HttpHost;
 import org.apache.lucene.search.TotalHits;
+import org.elasticsearch.action.admin.indices.analyze.AnalyzeRequest;
+import org.elasticsearch.action.admin.indices.analyze.AnalyzeResponse;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RequestOptions;
@@ -15,6 +17,7 @@ import org.elasticsearch.common.text.Text;
 import org.elasticsearch.common.unit.Fuzziness;
 import org.elasticsearch.common.unit.TimeValue;
 import org.elasticsearch.index.query.MatchQueryBuilder;
+import org.elasticsearch.index.query.Operator;
 import org.elasticsearch.rest.RestStatus;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
@@ -43,7 +46,9 @@ public class FuzzySearchController {
         //　搜索内容
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
         MatchQueryBuilder matchQueryBuilder = new MatchQueryBuilder("ocrText",searchStr);
+//        matchQueryBuilder.analyzer("ik_max_word");   // 不生效。采用另一种方案，在建立索引的时候，设置ik为默认的analyzer。
         matchQueryBuilder.fuzziness(Fuzziness.AUTO);
+//        matchQueryBuilder.operator(Operator.AND); // AND：搜索语句进行分词后，必须满足所有的搜索结果。
         searchSourceBuilder.query(matchQueryBuilder);
 
         // 高亮显示
@@ -55,7 +60,6 @@ public class FuzzySearchController {
 
         searchSourceBuilder.from(0);
         searchSourceBuilder.size(100);
-
 
         // 执行搜索
         searchRequest.source(searchSourceBuilder);
